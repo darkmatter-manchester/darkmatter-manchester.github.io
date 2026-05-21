@@ -1,0 +1,18 @@
+# =====================================================================
+# Group photos
+# =====================================================================
+# Feeds the year-tab group-photo widget on /people/.
+# Listed in any order — the page sorts by year, most recent first.
+# If you upload an image, drop it in /assets/images/group/ and set the
+# `image` field to its relative path. Leave `image` empty to show a
+# styled "image coming soon" placeholder.
+#
+# Schema:
+#   year:    integer
+#   image:   "/assets/images/group/2026.jpg"  (or "" for placeholder)
+#   caption: optional caption shown below the photo
+# =====================================================================
+
+- year: 2026
+  image: ""
+  caption: ""

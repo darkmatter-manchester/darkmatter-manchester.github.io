@@ -1,0 +1,72 @@
+# =====================================================================
+# Research themes
+# =====================================================================
+# Single source of truth for the six research themes.
+# Used by:
+#   - the home page (preview cards)
+#   - the /research/ hub
+#   - each theme page (`paper_tags` controls "Recent results" auto-pull
+#     on the theme page from `_data/publications.yml`)
+#
+# To add a theme: append a new entry with the schema below.
+# To reorder themes on the home + hub pages: reorder these entries.
+#
+# Schema:
+#   id:         short stable identifier (used in HTML ids / anchors)
+#   title:      display title
+#   slug:       URL slug (page lives at /research/<slug>/)
+#   teaser:     1–2 sentence card description
+#   paper_tags: paper / presentation tags that map to this theme
+# =====================================================================
+
+- id: phenomenology
+  title: Direct dark matter phenomenology
+  slug: phenomenology
+  teaser: >-
+    Non-relativistic effective field theory through to UV-complete mediator
+    models — bridging fundamental physics and detector observables across
+    argon, xenon, germanium and beyond.
+  paper_tags: [phenomenology]
+
+- id: darkside
+  title: DarkSide experiment
+  slug: darkside
+  teaser: >-
+    Contributions to DarkSide-20k at Gran Sasso and reinterpretation of
+    DarkSide-50 data across spin-independent, spin-dependent and
+    effective-field-theory motivated dark matter models.
+  paper_tags: [darkside]
+
+- id: instrumentation
+  title: Instrumentation development
+  slug: instrumentation
+  teaser: >-
+    Detector and readout technology development for next-generation
+    rare-event searches.
+  paper_tags: [instrumentation]
+
+- id: levitating
+  title: Opto-mechanical levitating sensors
+  slug: levitating
+  teaser: >-
+    Optically and magnetically levitated mesoscopic sensors as a route to
+    ultra-low-threshold detection — sensitivity projections, signal
+    modelling and physics-case studies for a new class of experiment.
+  paper_tags: [quantumsensors]
+
+- id: neutrinos
+  title: Neutrinos
+  slug: neutrinos
+  teaser: >-
+    CEvNS in dual-target direct-detection experiments, beyond-Standard-Model
+    neutrino physics, and Xe-136 neutrinoless double beta decay — with
+    connections to colliders, levitating sensors and phenomenology.
+  paper_tags: [neutrinos]
+
+- id: colliders
+  title: Collider physics
+  slug: colliders
+  teaser: >-
+    ATLAS at the LHC — connecting past and future interests in dark-sector
+    and beyond-Standard-Model searches at high-energy colliders.
+  paper_tags: [colliderphysics]

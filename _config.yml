@@ -1,0 +1,62 @@
+# =====================================================================
+# Dark Matter Manchester — Jekyll configuration
+# =====================================================================
+
+title: Dark Matter Manchester
+tagline: Searching for the invisible majority of matter
+description: >-
+  Particle-physics research group at the University of Manchester searching
+  for dark matter through direct detection, levitating sensors, neutrinos,
+  collider physics, instrumentation, and phenomenology.
+url: "https://darkmatter-manchester.github.io"
+baseurl: ""
+lang: en
+
+author:
+  name: Dark Matter Manchester
+  email: darren.price@manchester.ac.uk
+
+# ---------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Pretty URLs (e.g. /research/ instead of /research.html)
+permalink: /:path/
+
+# ---------------------------------------------------------------------
+# Plugins (allowed on GitHub Pages)
+# ---------------------------------------------------------------------
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# ---------------------------------------------------------------------
+# Defaults — everything uses default layout unless it declares its own
+# ---------------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+# ---------------------------------------------------------------------
+# Exclude from build output
+# ---------------------------------------------------------------------
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - vendor
+  - .bundle
+  - "*.gem"
+  - "*.gemspec"
+  - node_modules
+  - previewdesktop.png
+  - previewmobile.png

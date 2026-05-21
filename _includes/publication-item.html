@@ -1,0 +1,68 @@
+{%- comment -%}
+  Renders one publication in full citation format, with an optional
+  expandable "explainer" pane (a key plot + a paragraph) shown via a
+  down-arrow on the right. The arrow/pane only appear when `explainer`
+  and/or `explainer_image` are set on the entry.
+  Usage: {% include publication-item.html pub=pub %}
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- if pub.type == "published" -%}{%- assign type_label = "Published" -%}
+{%- elsif pub.type == "preprint" -%}{%- assign type_label = "Preprint" -%}
+{%- elsif pub.type == "conf-proceedings" -%}{%- assign type_label = "Proceedings" -%}
+{%- else -%}{%- assign type_label = pub.type -%}{%- endif -%}
+{%- assign has_explainer = false -%}
+{%- if pub.explainer and pub.explainer != "" -%}{%- assign has_explainer = true -%}{%- endif -%}
+{%- if pub.explainer_image and pub.explainer_image != "" -%}{%- assign has_explainer = true -%}{%- endif -%}
+<li class="pub-item filterable{% if has_explainer %} has-explainer{% endif %}" data-tags="{{ pub.tags | join: ' ' }}" data-type="{{ pub.type }}">
+  <div class="pub-item-main">
+    <span class="pub-type pub-type-{{ pub.type }}">{{ type_label }}</span>
+    {%- if pub.inspire and pub.inspire != "" -%}
+      <a class="pub-title" href="{{ pub.inspire }}" rel="noopener">{{ pub.title }}</a>
+    {%- elsif pub.arxiv_id and pub.arxiv_id != "" -%}
+      <a class="pub-title" href="https://arxiv.org/abs/{{ pub.arxiv_id }}" rel="noopener">{{ pub.title }}</a>
+    {%- else -%}
+      <span class="pub-title">{{ pub.title }}</span>
+    {%- endif -%}
+    <span class="pub-authors">
+      {%- assign n = pub.authors | size -%}
+      {%- if n > 4 -%}{{ pub.authors | first }} <em>et al.</em>
+      {%- else -%}{% for a in pub.authors %}{{ a }}{% unless forloop.last %}, {% endunless %}{% endfor %}{%- endif -%}
+    </span>
+    <span class="pub-meta-row">
+      {%- if pub.journal and pub.journal != "" -%}
+        {%- if pub.doi and pub.doi != "" -%}<a class="pub-journal" href="{{ pub.doi }}" rel="noopener">{{ pub.journal }}</a>
+        {%- else -%}<span class="pub-journal">{{ pub.journal }}</span>{%- endif -%}
+      {%- endif -%}
+      {%- if pub.arxiv_id and pub.arxiv_id != "" -%}
+        {%- if pub.journal and pub.journal != "" %}<span class="pub-sep" aria-hidden="true">&middot;</span>{% endif -%}
+        <a class="pub-arxiv" href="https://arxiv.org/abs/{{ pub.arxiv_id }}" rel="noopener">arXiv:{{ pub.arxiv_id }}{% if pub.arxiv_cat and pub.arxiv_cat != "" %} [{{ pub.arxiv_cat }}]{% endif %}</a>
+        <a class="pub-pdf" href="https://arxiv.org/pdf/{{ pub.arxiv_id }}" rel="noopener" aria-label="arXiv PDF" title="arXiv PDF"><svg viewBox="0 0 384 512" width="11" height="13" fill="currentColor" aria-hidden="true"><path d="M320 464c8.8 0 16-7.2 16-16V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l58.5 58.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm121 167c-8.8 0-16 7.2-16 16s7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16H121zm0 64c-8.8 0-16 7.2-16 16s7.2 16 16 16H247c8.8 0 16-7.2 16-16s-7.2-16-16-16H121z"/></svg></a>
+      {%- endif -%}
+    </span>
+  </div>
+  {%- if has_explainer -%}
+    <button type="button" class="pub-explainer-toggle" aria-expanded="false" aria-label="Show explainer">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+    <div class="pub-explainer">
+      <div class="pub-explainer-inner">
+        <div class="pub-explainer-content">
+          <figure class="pub-explainer-figure">
+            {%- if pub.explainer_image and pub.explainer_image != "" -%}
+              <img src="{{ pub.explainer_image | relative_url }}" alt="Key figure for {{ pub.title }}">
+            {%- else -%}
+              <div class="pub-explainer-placeholder">Key plot to come</div>
+            {%- endif -%}
+            {%- if pub.explainer_image_caption and pub.explainer_image_caption != "" -%}
+              <figcaption>{{ pub.explainer_image_caption }}</figcaption>
+            {%- endif -%}
+          </figure>
+          <div class="pub-explainer-text">
+            <div class="pub-explainer-label">Explainer</div>
+            {%- if pub.explainer and pub.explainer != "" -%}<p>{{ pub.explainer }}</p>{%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</li>

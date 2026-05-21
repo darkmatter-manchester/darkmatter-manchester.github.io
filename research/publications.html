@@ -1,0 +1,92 @@
+---
+layout: default
+title: Publications
+description: >-
+  Publications from Dark Matter Manchester — refereed papers, preprints,
+  and conference proceedings, filterable by topic.
+permalink: /research/publications/
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% include research-breadcrumb.html %}
+    <p class="eyebrow">Research</p>
+    <h1 class="page-title">Publications</h1>
+    <p class="lede">
+      Refereed papers, preprints, and conference proceedings. Use the tags
+      to filter by topic; clicking a tag isolates it, and you can combine
+      tags or reset to show everything.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="pub-section">
+  <div class="container">
+
+    <div class="tag-filter" role="group" aria-label="Filter publications by topic">
+      <span class="tag-filter-label">Filter</span>
+      {% for tag_entry in site.data.tag_labels %}
+        {% assign slug = tag_entry[0] %}
+        {% assign count = 0 %}
+        {% for pub in site.data.publications %}{% if pub.tags contains slug %}{% assign count = count | plus: 1 %}{% endif %}{% endfor %}
+        {% if count > 0 %}
+          <button type="button" class="tag-filter-btn active" data-tag="{{ slug }}" aria-pressed="true">{{ tag_entry[1] }}</button>
+        {% endif %}
+      {% endfor %}
+      <button type="button" class="tag-filter-reset">Reset</button>
+    </div>
+
+    {% assign pubs = site.data.publications | sort: "date" | reverse %}
+    {% assign by_year = pubs | group_by_exp: "pub", "pub.date | date: '%Y'" | sort: "name" | reverse %}
+    {% for yg in by_year %}
+      <div class="filter-group pub-year-group" data-group="{{ yg.name }}">
+        <h2 class="pub-year">{{ yg.name }}</h2>
+        <ul class="pub-list">
+          {% for pub in yg.items %}
+            {% include publication-item.html pub=pub %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+    <p class="filter-empty prose small" hidden>
+      No publications match the selected tags.
+      <button type="button" class="tag-filter-reset link-reset">Reset filters</button>
+    </p>
+
+    <p class="prose small pub-footnote">
+      Full publication list also available on
+      <a href="https://inspirehep.net/" rel="noopener">INSPIRE-HEP</a>.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="theme-footer-nav">
+  <div class="container">
+    <a href="{{ '/research/' | relative_url }}">&larr; All research</a>
+  </div>
+</section>
+
+{% include tag-filter-script.html %}
+
+<script>
+// Expand / collapse publication explainer panes
+(function () {
+  var toggles = document.querySelectorAll('.pub-explainer-toggle');
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.pub-item');
+      if (!item) return;
+      var pane = item.querySelector('.pub-explainer');
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      btn.setAttribute('aria-label', open ? 'Show explainer' : 'Hide explainer');
+      if (pane) pane.classList.toggle('open', !open);
+    });
+  });
+})();
+</script>

@@ -1,0 +1,74 @@
+# =====================================================================
+# Presentations
+# =====================================================================
+# Feeds:
+#   - the Recent presentations box on the home page (top 3 by date)
+#   - the /research/presentations/ page (reverse-chrono, category filter)
+#
+# To add a talk: append a new entry. They sort automatically by date.
+#
+# Schema:
+#   date:       YYYY-MM-DD                  (required)
+#   title:      talk title
+#   speaker:    name of speaker
+#   venue:      conference / institution name
+#   location:   "City, Country"
+#   slides:     optional URL  (renders a "Slides" link)
+#   recording:  optional URL  (renders a "Recording" link)
+#   tags:       MUST include one category, plus optional topic tags.
+#               Categories (drive the filter):
+#                 research-talk   (any invited / plenary / contributed)
+#                 public-lecture
+#                 seminar         (departmental seminars & colloquia)
+#                 poster
+#               Topic tags (optional, same vocabulary as publications):
+#                 darkside, phenomenology, instrumentation, quantumsensors,
+#                 neutrinos, colliderphysics, mlai
+#
+# NOTE: example entries below — replace with the real list when ready.
+# =====================================================================
+
+- date: 2026-05-01
+  title: "EXAMPLE — Dark matter at the crossroads of colliders and direct detection"
+  speaker: "Darren Price"
+  venue: "International Conference on High Energy Physics"
+  location: "Geneva, Switzerland"
+  slides: "https://example.com/slides1"
+  recording: "https://example.com/recording1"
+  tags: [research-talk, darkside, colliderphysics]
+
+- date: 2026-03-15
+  title: "EXAMPLE — The hunt for the invisible Universe"
+  speaker: "Darren Price"
+  venue: "Manchester Science Festival"
+  location: "Manchester, UK"
+  slides: ""
+  recording: "https://example.com/recording2"
+  tags: [public-lecture]
+
+- date: 2025-11-20
+  title: "EXAMPLE — Effective field theory and the target dependence of dark matter signals"
+  speaker: "Andrzej Gawdzik"
+  venue: "University of Example Particle Physics Seminar"
+  location: "Example, UK"
+  slides: "https://example.com/slides3"
+  recording: ""
+  tags: [seminar, phenomenology]
+
+- date: 2025-07-08
+  title: "EXAMPLE — Photodetector module characterisation for DarkSide-20k"
+  speaker: "Conner Roberts"
+  venue: "Technology and Instrumentation in Particle Physics"
+  location: "Vancouver, Canada"
+  slides: "https://example.com/slides4"
+  recording: ""
+  tags: [poster, darkside, instrumentation]
+
+- date: 2024-09-02
+  title: "EXAMPLE — Levitated sensors as a probe of light dark matter"
+  speaker: "Darren Price"
+  venue: "UK Dark Matter Community Meeting"
+  location: "London, UK"
+  slides: "https://example.com/slides5"
+  recording: ""
+  tags: [research-talk, quantumsensors]

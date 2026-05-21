@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{% assign theme = site.data.research_themes | where: "id", page.theme_id | first %}
+
+<section class="page-hero">
+  <div class="container">
+    {% include research-breadcrumb.html %}
+    <p class="eyebrow">Research</p>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if theme.teaser %}<p class="lede">{{ theme.teaser }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="theme-figure-section">
+  <div class="container">
+    <figure class="theme-figure">
+      {% if page.image and page.image != "" %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+      {% else %}
+        <div class="theme-figure-placeholder" role="img" aria-label="Figure placeholder for {{ page.title }}">
+          <span class="theme-figure-placeholder-text">Figure to come</span>
+        </div>
+      {% endif %}
+      {% if page.image_caption and page.image_caption != "" %}
+        <figcaption>{{ page.image_caption }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="theme-body-section">
+  <div class="container">
+    <div class="theme-body">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="theme-footer-nav">
+  <div class="container">
+    <a href="{{ '/research/' | relative_url }}">&larr; All research</a>
+  </div>
+</section>

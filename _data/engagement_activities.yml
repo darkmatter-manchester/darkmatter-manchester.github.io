@@ -1,0 +1,57 @@
+# =====================================================================
+# Public engagement activities
+# =====================================================================
+# Feeds the Activities list on /engagement/ (reverse-chronological).
+#
+# Schema:
+#   date:        YYYY-MM-DD                  (required — drives ordering)
+#   title:       activity title
+#   type:        free text, e.g. Public lecture | School visit | Festival
+#                | Workshop | Media | Exhibition
+#   audience:    free text, e.g. "General public", "Schools (KS5)",
+#                "Families"
+#   link:        optional URL (renders a link)
+#   image:       optional path, e.g. "/assets/images/engagement/foo.jpg"
+#                (a placeholder thumbnail shows when empty)
+#   description: optional longer text. When present, a "More" toggle
+#                appears that expands an inline description.
+#
+# NOTE: example entries below — replace with real activities when ready.
+# =====================================================================
+
+- date: 2026-04-20
+  title: "EXAMPLE — The hunt for the invisible Universe"
+  type: "Public lecture"
+  audience: "General public"
+  link: "https://example.com"
+  image: ""
+  description: ""
+
+- date: 2026-02-10
+  title: "EXAMPLE — Particle physics workshop for sixth-formers"
+  type: "School visit"
+  audience: "Schools (KS5)"
+  link: ""
+  image: ""
+  description: >-
+    A longer description that appears when the visitor clicks "More".
+    Use this to give context about the activity — what it covered, who it
+    reached, and any outcomes. Leave the field empty to hide the toggle.
+
+- date: 2025-07-15
+  title: "EXAMPLE — Dark matter stand at a science festival"
+  type: "Festival"
+  audience: "Families & general public"
+  link: "https://example.com"
+  image: ""
+  description: >-
+    Hands-on demonstrations introducing visitors to the search for dark
+    matter, including a working detector demonstrator built by the group.
+
+- date: 2024-11-02
+  title: "EXAMPLE — Radio interview on the search for dark matter"
+  type: "Media"
+  audience: "General public"
+  link: "https://example.com"
+  image: ""
+  description: ""

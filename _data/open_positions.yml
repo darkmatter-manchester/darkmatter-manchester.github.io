@@ -1,0 +1,29 @@
+# =====================================================================
+# Currently-open positions
+# =====================================================================
+# Feeds the "Currently open" highlights at the top of /join/.
+# Leave this file empty (just comments) when nothing is open — the
+# section then hides itself automatically.
+#
+# Schema:
+#   level:    masters | phd | postdoc   (drives the colour coding)
+#   title:    position title
+#   summary:  one-line description
+#   deadline: optional free text (e.g. "Applications close 31 Jan 2027")
+#   link:     optional URL to the advert. If empty, the card links to
+#             the relevant sub-page (/join/<level>/).
+#
+# NOTE: example entries below — delete or replace with real openings.
+# =====================================================================
+
+- level: phd
+  title: "EXAMPLE — STFC-funded PhD studentship in dark matter detection"
+  summary: "A fully funded PhD position working on the DarkSide-20k experiment, starting September 2026."
+  deadline: "EDIT ME — e.g. Applications close 31 January 2027"
+  link: ""
+
+- level: postdoc
+  title: "EXAMPLE — Postdoctoral Research Associate in dark matter phenomenology"
+  summary: "A two-year position on dark matter model-building and collider connections."
+  deadline: "EDIT ME"
+  link: ""

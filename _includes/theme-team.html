@@ -1,0 +1,35 @@
+{%- comment -%}
+  Team members working on a theme. Pulls people whose `themes` include the
+  theme's paper tag (from _data/research_themes.yml), in people.yml order.
+  Requires `page.theme_id` to be set on the including page.
+{%- endcomment -%}
+{% assign theme = site.data.research_themes | where: "id", page.theme_id | first %}
+{% assign theme_tag = theme.paper_tags | first %}
+{% assign team = site.data.people | where_exp: "p", "p.themes contains theme_tag" %}
+
+<h2 class="section-label">Team on this theme</h2>
+{% if team.size > 0 %}
+  <ul class="theme-team-list">
+    {% for p in team %}
+      <li>
+        <a class="theme-team-name" href="{{ '/people/' | relative_url }}#{{ p.id }}">{% if p.honorific and p.honorific != "" %}{{ p.honorific }} {% endif %}{{ p.name }}</a>
+        <span class="theme-team-role">{{ p.role }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="prose small">Team members will appear here.</p>
+{% endif %}
+
+{% assign theme_alumni = site.data.alumni | where_exp: "a", "a.themes contains theme_tag" %}
+{% if theme_alumni.size > 0 %}
+  <h2 class="section-label">Alumni associated to this theme</h2>
+  <ul class="theme-team-list">
+    {% for a in theme_alumni %}
+      <li>
+        <a class="theme-team-name" href="{{ '/people/' | relative_url }}#{{ a.id }}">{% if a.honorific and a.honorific != "" %}{{ a.honorific }} {% endif %}{{ a.name }}</a>
+        <span class="theme-team-role">{{ a.role_while_here }} &middot; {{ a.dates }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,42 @@
+# =====================================================================
+# People group definitions
+# =====================================================================
+# Controls the ORDER in which current members appear on /people/.
+# Members are now shown as one continuous grid (no section headings),
+# grouped internally by this order: pi → postdoc → phd → pgmasters →
+# ugmasters. Within each group, order follows _data/people.yml.
+#
+# `key` is what's used (matched against the `group:` field in
+# people.yml). `label` and `anchor` are retained for documentation and
+# in case section headings / anchor navigation are reintroduced later —
+# they are not currently rendered.
+#
+# To change the section order, reorder these entries.
+# To add a new group (e.g. "visiting"), append an entry and add members
+# with that `group:` value in people.yml.
+#
+# Schema:
+#   key:    matches the `group:` field on entries in _data/people.yml
+#   label:  full section heading (not currently rendered)
+#   anchor: short anchor-nav label (not currently rendered)
+# =====================================================================
+
+- key: pi
+  label: "Principal Investigator"
+  anchor: "Principal Investigator"
+
+- key: postdoc
+  label: "Postdoctoral Researchers"
+  anchor: "Postdocs"
+
+- key: phd
+  label: "PhD Students"
+  anchor: "PhD Students"
+
+- key: pgmasters
+  label: "Postgraduate Masters"
+  anchor: "Postgraduate Masters"
+
+- key: ugmasters
+  label: "Undergraduate Masters and Summer Students"
+  anchor: "Undergraduate &amp; Summer"

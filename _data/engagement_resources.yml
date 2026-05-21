@@ -1,0 +1,51 @@
+# =====================================================================
+# Engagement resources
+# =====================================================================
+# Feeds the Resources section on /engagement/, split into two
+# sub-sections by the `group` field:
+#   own       — materials the group has created
+#   external  — curated links to good resources made elsewhere
+#
+# Schema:
+#   group:       own | external
+#   title:       resource title
+#   type:        free text, e.g. Video | Article | Activity pack | Slides
+#                | Website
+#   description: optional one-line description
+#   link:        URL (the whole card links here)
+#   source:      optional attribution for external resources
+#
+# NOTE: example entries below — replace with real resources when ready.
+# =====================================================================
+
+# ---------- The group's own materials ----------
+
+- group: own
+  title: "EXAMPLE — What is dark matter? (explainer video)"
+  type: "Video"
+  description: "A short introduction to the dark matter problem."
+  link: "https://example.com"
+  source: ""
+
+- group: own
+  title: "EXAMPLE — Build-your-own cloud chamber"
+  type: "Activity pack"
+  description: "A downloadable activity for classrooms and science clubs."
+  link: "https://example.com"
+  source: ""
+
+# ---------- External resources ----------
+
+- group: external
+  title: "EXAMPLE — Particle physics for everyone"
+  type: "Website"
+  description: "An accessible introduction to particle physics."
+  link: "https://example.com"
+  source: "Example organisation"
+
+- group: external
+  title: "EXAMPLE — Dark matter explained"
+  type: "Article"
+  description: "A longer read on the evidence for dark matter."
+  link: "https://example.com"
+  source: "Example publication"

@@ -1,0 +1,35 @@
+# =====================================================================
+# Group alumni
+# =====================================================================
+# Feeds the Alumni section of the /people/ page.
+# Listed in alphabetical order by `surname` (the page sorts automatically).
+#
+# Schema:
+#   id:                      stable slug
+#   name:                    full name
+#   honorific:               "Prof." | "Dr." | ""
+#   surname:                 for sorting
+#   role_while_here:         role / position when in the group
+#   dates:                   "YYYY–YYYY" (use en-dash – not hyphen -)
+#   bio:                     research focus while in the group
+#                            (1–2 sentences). Leave "" to omit.
+#   themes:                  list of tag slugs they worked on
+#                            (same vocabulary as people.yml; see
+#                            _data/tag_labels.yml)
+#   current_position:        free-text (e.g. "Lecturer, University of X")
+#   current_position_link:   optional URL
+# =====================================================================
+
+# ---- DUMMY ENTRY — replace with real alumni when ready -------------
+- id: example-alumnus
+  name: "Example Alumnus"
+  honorific: "Dr."
+  surname: "Alumnus"
+  role_while_here: "Postdoctoral Research Associate"
+  dates: "2020–2023"
+  bio: >-
+    Worked on signal modelling and analysis tools for direct-detection
+    dark matter searches at Gran Sasso.
+  themes: [darkside, phenomenology, instrumentation]
+  current_position: "Lecturer, University of Example"
+  current_position_link: "https://example.com"

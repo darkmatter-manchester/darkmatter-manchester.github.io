@@ -1,0 +1,232 @@
+# =====================================================================
+# Current group members
+# =====================================================================
+# Feeds the /people/ page.
+#
+# Order within this file = display order on the page. Entries are
+# grouped by `group:` matching keys in _data/people_groups.yml.
+# Within each group, list members in reverse-chronological order of
+# `start_year` (most recent first); for ties, alphabetical by surname.
+#
+# Schema:
+#   id:          stable slug (used in HTML anchors)
+#   name:        full name as displayed (UTF-8 OK — diacritics fine)
+#   honorific:   "Prof." | "Dr." | ""  (rendered in muted italic)
+#   surname:     for sorting reference
+#   role:        full role title (e.g. "PhD student (2023–)")
+#   group:       see _data/people_groups.yml for valid keys
+#   start_year:  integer — year they joined the group (used for sorting
+#                / future display; null for PI / postdocs if not relevant)
+#   bio:         two-line research-focus paragraph. Leave "" to render
+#                a soft "Research focus to come." placeholder.
+#   themes:      list of tag slugs from _data/tag_labels.yml
+#   experiments: list (free-form, forward-compatible — empty for now)
+#   email, orcid, website, linkedin, github, bluesky: optional URLs
+#   photo:       path to image, e.g. "/assets/images/people/foo.jpg".
+#                Leave "" — initials placeholder shown automatically.
+# =====================================================================
+
+# ---------- Principal Investigator ----------
+
+- id: darren-price
+  name: "Darren Price"
+  honorific: "Prof."
+  surname: "Price"
+  role: "Principal Investigator"
+  group: pi
+  start_year: null
+  bio: >-
+    Works across dark matter at colliders and in direct detection,
+    phenomenology, instrumentation, and the deployment of AI techniques.
+  themes: [phenomenology, darkside, instrumentation, quantumsensors, neutrinos, colliderphysics, mlai]
+  experiments: []
+  email: "darren.price@manchester.ac.uk"
+  orcid: ""
+  website: ""
+  linkedin: "https://www.linkedin.com/in/darrendavidprice/"
+  github: ""
+  bluesky: ""
+  photo: ""
+
+# ---------- Postdoctoral researchers ----------
+
+- id: ash-ritchie-yates
+  name: "Ash Ritchie-Yates"
+  honorific: "Dr."
+  surname: "Ritchie-Yates"
+  role: "Particle Astrophysics Postdoctoral Research Fellow"
+  group: postdoc
+  start_year: null
+  bio: ""
+  themes: [darkside, quantumsensors, instrumentation]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+# ---------- PhD students (reverse-chrono by start year; alphabetical within year) ----------
+
+- id: yingchang-zhang
+  name: "Yingchang Zhang"
+  honorific: ""
+  surname: "Zhang"
+  role: "PhD student (2026–)"
+  group: phd
+  start_year: 2026
+  bio: >-
+    Development of opto-mechanical levitating quantum sensors for dark
+    matter detection.
+  themes: [instrumentation, quantumsensors]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+- id: saule-piguleviciute
+  name: "Saulė Pigulevičiūtė"
+  honorific: ""
+  surname: "Pigulevičiūtė"
+  role: "PhD student (2025–)"
+  group: phd
+  start_year: 2025
+  bio: ""
+  themes: [darkside, instrumentation, phenomenology]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+- id: haoxiang-zhan
+  name: "Haoxiang Zhan"
+  honorific: ""
+  surname: "Zhan"
+  role: "PhD student (2025–)"
+  group: phd
+  start_year: 2025
+  bio: ""
+  themes: [phenomenology, darkside, instrumentation]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+- id: andrzej-gawdzik
+  name: "Andrzej Gawdzik"
+  honorific: ""
+  surname: "Gawdzik"
+  role: "PhD student (2023–)"
+  group: phd
+  start_year: 2023
+  bio: ""
+  themes: [phenomenology, darkside, neutrinos, quantumsensors, mlai]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+- id: conner-roberts
+  name: "Conner Roberts"
+  honorific: ""
+  surname: "Roberts"
+  role: "PhD student (2021–)"
+  group: phd
+  start_year: 2021
+  bio: ""
+  themes: [darkside, instrumentation]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+# ---------- Postgraduate Masters (MPhil / MScR) ----------
+
+- id: hayden-casey
+  name: "Hayden Casey"
+  honorific: ""
+  surname: "Casey"
+  role: "MPhil student"
+  group: pgmasters
+  start_year: 2025
+  bio: >-
+    Sensitivity studies for beyond-the-Standard-Model low-energy solar
+    CEvNS anomalies with low-threshold dual-phase liquid-argon time
+    projection chambers.
+  themes: [darkside, neutrinos]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+# ---------- Undergraduate Masters and Summer Students ----------
+
+- id: david-crofts
+  name: "David Crofts"
+  honorific: ""
+  surname: "Crofts"
+  role: "MPhys student (2025–26)"
+  group: ugmasters
+  start_year: 2025
+  bio: >-
+    Development of a muon cosmic-ray detector and a mini DarkSide-20k
+    demonstrator for public engagement, using silicon photosensor Photo
+    Detection Modules built for the DarkSide-20k neutron veto. With Louis
+    Durand.
+  themes: [darkside, instrumentation]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""
+
+- id: louis-durand
+  name: "Louis Durand"
+  honorific: ""
+  surname: "Durand"
+  role: "MPhys student (2025–26)"
+  group: ugmasters
+  start_year: 2025
+  bio: >-
+    Development of a muon cosmic-ray detector and a mini DarkSide-20k
+    demonstrator for public engagement, using silicon photosensor Photo
+    Detection Modules built for the DarkSide-20k neutron veto. With David
+    Crofts.
+  themes: [darkside, instrumentation]
+  experiments: []
+  email: ""
+  orcid: ""
+  website: ""
+  linkedin: ""
+  github: ""
+  bluesky: ""
+  photo: ""

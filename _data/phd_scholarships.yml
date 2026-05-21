@@ -1,0 +1,85 @@
+# =====================================================================
+# PhD scholarships / funding routes
+# =====================================================================
+# Feeds the funding-routes list on /join/phd/.
+#
+# Schema (all text fields are free text):
+#   title:        scheme name
+#   eligibility:  who it is open to — e.g. "Home", "International",
+#                 "Home & International"
+#   deadline:     application deadline for the scheme
+#   contact_by:   when a prospective student should contact me by
+#                 (usually well before the scheme deadline)
+#   formal:       formal requirements / eligibility criteria
+#   practical:    practical advice — what a strong application needs
+#   link:         optional URL to the scheme's official page
+#
+# The scheme NAMES below are real; every other field is a placeholder
+# ("EDIT ME"). Fill these in — and especially check deadlines and
+# eligibility against each scheme's official page before publishing.
+# Add, remove, or reorder entries freely.
+# =====================================================================
+
+- title: "STFC Doctoral Training Partnership (DTP)"
+  eligibility: "Home (limited International places)"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "University of Manchester President's Doctoral Scholar (PDS) Award"
+  eligibility: "Home & International"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "Dean's Doctoral Scholarship"
+  eligibility: "Home & International"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "Departmental Scholarships"
+  eligibility: "Home & International"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "China Scholarship Council (CSC) Scholarships"
+  eligibility: "International (Chinese nationals)"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME — note CSC applications need an early start."
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "IOP Bell Burnell Graduate Scholarship Fund"
+  eligibility: "Home & International"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — supports students from groups under-represented in physics."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "Commonwealth Scholarships (high-income countries)"
+  eligibility: "International (eligible Commonwealth countries)"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""
+
+- title: "Commonwealth Scholarships (low- and middle-income countries)"
+  eligibility: "International (eligible Commonwealth countries)"
+  deadline: "EDIT ME"
+  contact_by: "EDIT ME"
+  formal: "EDIT ME — formal eligibility criteria for this scheme."
+  practical: "EDIT ME — what a competitive application looks like."
+  link: ""

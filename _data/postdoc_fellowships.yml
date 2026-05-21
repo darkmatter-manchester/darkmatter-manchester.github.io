@@ -1,0 +1,80 @@
+# =====================================================================
+# Postdoctoral fellowships
+# =====================================================================
+# Feeds the fellowships list on /join/postdoc/.
+#
+# Schema (all text fields are free text):
+#   title:       fellowship name
+#   stage:       career stage it suits — e.g. "Early career (0–8 yrs post-PhD)"
+#   summary:     one- or two-line description
+#   timing:      when the call typically opens / the deadline
+#   contact_by:  when a prospective applicant should contact me by
+#   link:        optional URL to the scheme's official page
+#
+# The scheme NAMES below are real; the other fields are placeholders.
+# Check eligibility, timing, and career-stage windows against each
+# scheme's official page before publishing. Add or reorder freely.
+# =====================================================================
+
+- title: "Royal Society University Research Fellowship (URF)"
+  stage: "Early career"
+  summary: "EDIT ME — long-duration fellowship for outstanding early-career researchers."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "STFC Ernest Rutherford Fellowship"
+  stage: "Early career"
+  summary: "EDIT ME — for early-career researchers in STFC science areas."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "UKRI Future Leaders Fellowship (FLF)"
+  stage: "Early to mid career"
+  summary: "EDIT ME — supports ambitious research and innovation leaders."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "Marie Skłodowska-Curie Postdoctoral Fellowship"
+  stage: "Early career"
+  summary: "EDIT ME — European fellowship supporting international mobility."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "Leverhulme Early Career Fellowship"
+  stage: "Early career"
+  summary: "EDIT ME — for those within a few years of completing a PhD."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "Royal Commission for the Exhibition of 1851 Research Fellowship"
+  stage: "Early career"
+  summary: "EDIT ME — fellowship for early-career researchers in science and engineering."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "Schmidt Science Fellowship"
+  stage: "Postdoctoral (interdisciplinary)"
+  summary: "EDIT ME — supports researchers pivoting into a new discipline."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "Newton International Fellowship"
+  stage: "Early career (international)"
+  summary: "EDIT ME — for non-UK researchers seeking to work in the UK."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""
+
+- title: "University of Manchester Dame Kathleen Ollerenshaw (DKO) Fellowship"
+  stage: "Early career"
+  summary: "EDIT ME — Manchester fellowship that arises from time to time."
+  timing: "EDIT ME"
+  contact_by: "EDIT ME"
+  link: ""

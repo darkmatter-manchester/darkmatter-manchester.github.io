@@ -1,0 +1,125 @@
+# =====================================================================
+# Publications
+# =====================================================================
+# Feeds:
+#   - the Recent publications box on the home page (top 3 by date)
+#   - the /research/publications/ page (reverse-chrono, year breaks,
+#     tag-filter widget)
+#   - each research-theme page (Recent results, filtered by the theme's
+#     paper_tags from _data/research_themes.yml)
+#
+# To add a paper: append a new entry. They sort automatically by date.
+#
+# Schema:
+#   date:       YYYY-MM-DD                  (required)
+#   title:      paper title
+#   authors:    [list of names, in order]   — layout shows all if <= 4,
+#                                             otherwise "First Author et al."
+#   journal:    short venue, e.g. "Phys. Rev. D" — optional for preprints
+#   doi:        full DOI URL                — optional (journal links to it)
+#   arxiv_id:   "2501.12345"                — optional
+#   arxiv_cat:  "hep-ex" | "hep-ph" | "astro-ph.CO" | ...   — optional
+#   inspire:    INSPIRE record URL          — optional (title links to it)
+#   type:       published | preprint | conf-proceedings
+#   tags:       free topic tags (lower-case). Vocabulary in tag_labels.yml:
+#               darkside, phenomenology, instrumentation, quantumsensors,
+#               neutrinos, colliderphysics, mlai
+#
+#   --- optional "explainer" (adds an expandable pane with a down-arrow) ---
+#   explainer:           a paragraph on the key idea / result / impact.
+#   explainer_image:     path to ONE key plot, e.g.
+#                        "/assets/images/publications/my-plot.png"
+#   explainer_image_caption: optional caption under the plot.
+#   If neither explainer nor explainer_image is set, no arrow/pane appears.
+#
+# NOTE: the entries below are EXAMPLES to demonstrate the layout and
+# filter. Replace with the real publication list when ready.
+# =====================================================================
+
+- date: 2026-03-10
+  title: "EXAMPLE — Effective-field-theory limits on dark matter from DarkSide-50"
+  authors:
+    - "Author A"
+    - "Author B"
+    - "Author C"
+    - "Author D"
+  journal: "Phys. Rev. D"
+  doi: "https://doi.org/10.0000/EXAMPLE1"
+  arxiv_id: "2603.00001"
+  arxiv_cat: "hep-ex"
+  inspire: "https://inspirehep.net/literature/0000001"
+  type: published
+  tags: [darkside, phenomenology]
+  explainer: >-
+    This is an example explainer. Replace it with a short paragraph on the
+    key idea, result, or impact of the paper — the kind of plain-language
+    summary you would give a colleague over coffee. The plot opposite shows
+    the headline result; set "explainer_image" to your own key figure.
+  explainer_image: "/assets/images/publications/example-plot.svg"
+  explainer_image_caption: "Example exclusion limit (placeholder figure)."
+
+- date: 2026-01-20
+  title: "EXAMPLE — Companion operators in non-relativistic dark matter EFT"
+  authors:
+    - "Author A"
+    - "Author B"
+    - "Author C"
+    - "Author D"
+    - "Author E"
+  arxiv_id: "2601.00002"
+  arxiv_cat: "hep-ph"
+  type: preprint
+  tags: [phenomenology, mlai]
+
+- date: 2025-09-15
+  title: "EXAMPLE — Machine-learning event classification for collider dark-sector searches"
+  authors:
+    - "Author A"
+    - "Author F"
+    - "Author G"
+    - "Author H"
+    - "Author I"
+  journal: "JHEP"
+  doi: "https://doi.org/10.0000/EXAMPLE3"
+  arxiv_id: "2509.00003"
+  arxiv_cat: "hep-ex"
+  inspire: "https://inspirehep.net/literature/0000003"
+  type: published
+  tags: [colliderphysics, mlai]
+
+- date: 2025-07-02
+  title: "EXAMPLE — DarkSide-20k photodetector module performance"
+  authors:
+    - "Author A"
+  journal: "PoS (TIPP2025)"
+  arxiv_id: "2507.00004"
+  arxiv_cat: "physics.ins-det"
+  type: conf-proceedings
+  tags: [darkside, instrumentation]
+
+- date: 2025-03-28
+  title: "EXAMPLE — Solar CEvNS sensitivity in low-threshold liquid-argon detectors"
+  authors:
+    - "Author A"
+    - "Author B"
+    - "Author C"
+  journal: "JCAP"
+  doi: "https://doi.org/10.0000/EXAMPLE5"
+  arxiv_id: "2503.00005"
+  arxiv_cat: "hep-ph"
+  inspire: "https://inspirehep.net/literature/0000005"
+  type: published
+  tags: [neutrinos]
+
+- date: 2024-11-11
+  title: "EXAMPLE — Physics reach of levitated opto-mechanical dark matter sensors"
+  authors:
+    - "Author A"
+    - "Author B"
+  journal: "Phys. Rev. D"
+  doi: "https://doi.org/10.0000/EXAMPLE6"
+  arxiv_id: "2411.00006"
+  arxiv_cat: "hep-ph"
+  inspire: "https://inspirehep.net/literature/0000006"
+  type: published
+  tags: [quantumsensors, instrumentation]

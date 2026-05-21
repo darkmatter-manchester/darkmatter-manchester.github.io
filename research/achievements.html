@@ -1,0 +1,53 @@
+---
+layout: default
+title: Achievements
+description: >-
+  Awards, grants, theses, milestones, and media coverage from Dark Matter
+  Manchester.
+permalink: /research/achievements/
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% include research-breadcrumb.html %}
+    <p class="eyebrow">Research</p>
+    <h1 class="page-title">Achievements</h1>
+    <p class="lede">
+      Awards and prizes, grants, theses defended, collaboration milestones,
+      and media coverage.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="achievement-section">
+  <div class="container">
+    {% assign ach = site.data.achievements | sort: "date" | reverse %}
+    {% if ach.size > 0 %}
+      <ul class="achievement-list">
+        {% for a in ach %}
+          <li class="achievement-item">
+            <div class="achievement-meta">
+              <span class="achievement-type achievement-type-{{ a.type | downcase }}">{{ a.type }}</span>
+              <span class="achievement-date">{{ a.date | date: "%B %Y" }}</span>
+            </div>
+            <span class="achievement-title">{{ a.title }}</span>
+            {% if a.body and a.body != "" %}<p class="achievement-body">{{ a.body }}</p>{% endif %}
+            {% if a.link and a.link != "" %}<a class="achievement-link" href="{{ a.link }}" rel="noopener">Read more &rarr;</a>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="prose small">Achievements will be listed here.</p>
+    {% endif %}
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="theme-footer-nav">
+  <div class="container">
+    <a href="{{ '/research/' | relative_url }}">&larr; All research</a>
+  </div>
+</section>

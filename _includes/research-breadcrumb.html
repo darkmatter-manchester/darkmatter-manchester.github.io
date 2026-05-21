@@ -1,0 +1,7 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+  <a href="{{ '/research/' | relative_url }}">Research</a>
+  <span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+  <span class="breadcrumb-current">{{ include.title | default: page.title }}</span>
+</nav>

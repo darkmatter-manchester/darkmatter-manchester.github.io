@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Dark Matter Manchester home">
+      <span class="brand-mark">DM</span>
+      <span class="brand-name">Dark Matter Manchester</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {%- assign path = page.url -%}
+      <a href="{{ '/' | relative_url }}"
+         {% if path == '/' %}class="active" aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/research/' | relative_url }}"
+         {% if path contains '/research' %}class="active" aria-current="page"{% endif %}>Research</a>
+      <a href="{{ '/people/' | relative_url }}"
+         {% if path contains '/people' %}class="active" aria-current="page"{% endif %}>People</a>
+      <a href="{{ '/engagement/' | relative_url }}"
+         {% if path contains '/engagement' %}class="active" aria-current="page"{% endif %}>Engagement</a>
+      <a href="{{ '/join/' | relative_url }}"
+         {% if path contains '/join' %}class="active" aria-current="page"{% endif %}>Join</a>
+      <a href="{{ '/contact/' | relative_url }}"
+         {% if path contains '/contact' %}class="active" aria-current="page"{% endif %}>Contact</a>
+    </nav>
+  </div>
+</header>

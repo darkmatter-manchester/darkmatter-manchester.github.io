@@ -1,0 +1,84 @@
+---
+layout: default
+title: Presentations
+description: >-
+  Talks from Dark Matter Manchester — research talks, public lectures,
+  seminars, and posters.
+permalink: /research/presentations/
+---
+
+<section class="page-hero">
+  <div class="container">
+    {% include research-breadcrumb.html %}
+    <p class="eyebrow">Research</p>
+    <h1 class="page-title">Presentations</h1>
+    <p class="lede">
+      Research talks, public lectures, seminars and colloquia, and posters.
+      Filter by type below.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="pres-section">
+  <div class="container">
+
+    {% assign categories = "research-talk,public-lecture,seminar,poster" | split: "," %}
+    {% assign cat_labels = "Research talks,Public lectures,Seminars & colloquia,Posters" | split: "," %}
+
+    <div class="tag-filter" role="group" aria-label="Filter presentations by type">
+      <span class="tag-filter-label">Filter</span>
+      {% for i in (0..3) %}
+        {% assign cat = categories[i] %}
+        {% assign count = 0 %}
+        {% for pres in site.data.presentations %}{% if pres.tags contains cat %}{% assign count = count | plus: 1 %}{% endif %}{% endfor %}
+        {% if count > 0 %}
+          <button type="button" class="tag-filter-btn active" data-tag="{{ cat }}" aria-pressed="true">{{ cat_labels[i] }}</button>
+        {% endif %}
+      {% endfor %}
+      <button type="button" class="tag-filter-reset">Reset</button>
+    </div>
+
+    {% assign pres_list = site.data.presentations | sort: "date" | reverse %}
+    <ul class="pres-list">
+      {% for pres in pres_list %}
+        {%- assign cat = "" -%}
+        {%- if pres.tags contains "research-talk" -%}{%- assign cat = "research-talk" -%}
+        {%- elsif pres.tags contains "public-lecture" -%}{%- assign cat = "public-lecture" -%}
+        {%- elsif pres.tags contains "seminar" -%}{%- assign cat = "seminar" -%}
+        {%- elsif pres.tags contains "poster" -%}{%- assign cat = "poster" -%}{%- endif -%}
+        <li class="pres-item filterable" data-tags="{{ pres.tags | join: ' ' }}">
+          {% if cat != "" %}<span class="pres-cat pres-cat-{{ cat }}">{{ site.data.tag_labels[cat] }}</span>{% endif %}
+          <span class="pres-title">{{ pres.title }}</span>
+          <span class="pres-speaker-venue">
+            <span class="pres-speaker">{{ pres.speaker }}</span>
+            &middot; {{ pres.venue }}{% if pres.location and pres.location != "" %}, {{ pres.location }}{% endif %}
+            &middot; {{ pres.date | date: "%b %Y" }}
+          </span>
+          {% if pres.slides != "" or pres.recording != "" %}
+            <span class="pres-links">
+              {% if pres.slides and pres.slides != "" %}<a href="{{ pres.slides }}" rel="noopener">Slides</a>{% endif %}
+              {% if pres.recording and pres.recording != "" %}<a href="{{ pres.recording }}" rel="noopener">Recording</a>{% endif %}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <p class="filter-empty prose small" hidden>
+      No presentations match the selected type.
+      <button type="button" class="tag-filter-reset link-reset">Reset filters</button>
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="theme-footer-nav">
+  <div class="container">
+    <a href="{{ '/research/' | relative_url }}">&larr; All research</a>
+  </div>
+</section>
+
+{% include tag-filter-script.html %}

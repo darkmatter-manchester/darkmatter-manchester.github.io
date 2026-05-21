@@ -1,264 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dark Matter Manchester</title>
-  <meta name="description" content="Particle physics research group at the University of Manchester searching for dark matter through direct detection, levitating sensors, and phenomenology.">
-  <meta property="og:title" content="Dark Matter Manchester">
-  <meta property="og:description" content="Searching for the invisible majority of matter.">
-  <meta property="og:type" content="website">
+---
+layout: default
+title: Dark Matter Manchester
+description: >-
+  Particle-physics research group at the University of Manchester searching
+  for dark matter through direct detection, levitating sensors, neutrinos,
+  collider physics, and phenomenology.
+---
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+<!-- ================================================================ -->
+<!-- HERO                                                              -->
+<!-- ================================================================ -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Particle Physics &middot; The University of Manchester</p>
+    <h1 class="display">Searching for the<br><em>invisible majority</em> of matter.</h1>
+    <p class="lede">
+      Dark matter outweighs everything we can see by a factor of five.
+      We don't yet know what it is. Our group works to find out — through
+      direct-detection experiments, novel sensor technologies, and the
+      theoretical modelling that lets us interpret what we observe.
+    </p>
+    <p class="hero-meta">Manchester &middot; United Kingdom</p>
+  </div>
+</section>
 
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<hr class="rule">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Dark Matter Manchester home">
-        <span class="brand-mark">DM</span>
-        <span class="brand-name">Dark Matter Manchester</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#people">People</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- ================================================================ -->
+<!-- BRIEF ABOUT                                                       -->
+<!-- ================================================================ -->
+<section class="about-brief">
+  <div class="container">
+    <p class="prose">
+      Dark Matter Manchester is a research group within the Particle Physics
+      theme at the University of Manchester. We bring together
+      experimentalists and phenomenologists to address one of the most
+      conspicuous open questions in physics: what is the matter that
+      shapes galaxies and the cosmic web, yet emits no light?
+    </p>
+    <p class="prose">
+      Our programme spans direct detection on DarkSide-20k, opto-mechanical
+      levitating sensors, instrumentation development, neutrino physics,
+      collider physics on ATLAS, and the phenomenological work that connects
+      underlying particle models to what experiments actually see.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- RESEARCH THEME PREVIEW                                            -->
+<!-- ================================================================ -->
+<section class="research-themes-preview">
+  <div class="container wide">
+    <h2 class="section-label">Research</h2>
+    <div class="theme-card-grid">
+      {% for theme in site.data.research_themes %}
+        <a class="theme-card" href="{{ '/research/' | append: theme.slug | append: '/' | relative_url }}">
+          <h3>{{ theme.title }}</h3>
+          <p>{{ theme.teaser }}</p>
+          <span class="theme-card-link">Explore &rarr;</span>
+        </a>
+      {% endfor %}
     </div>
-  </header>
+    <p class="prose small">
+      <a href="{{ '/research/' | relative_url }}">All research &rarr;</a>
+    </p>
+  </div>
+</section>
 
-  <main id="top">
+<hr class="rule">
 
-    <!-- ============================================================ -->
-    <!-- HERO — EDIT the headline and lede paragraph to taste         -->
-    <!-- ============================================================ -->
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Particle Physics &middot; The University of Manchester</p>
-        <h1 class="display">Searching for the<br><em>invisible majority</em> of matter.</h1>
-        <p class="lede">
-          Dark matter outweighs everything we can see by a factor of five.
-          We don't yet know what it is. Our group works to find out — through
-          direct-detection experiments, novel sensor technologies, and the
-          theoretical modelling that lets us interpret what we observe.
-        </p>
-        <p class="hero-meta">Manchester &middot; United Kingdom</p>
-      </div>
-    </section>
+<!-- ================================================================ -->
+<!-- RECENT ACTIVITY (news / pubs / presentations)                     -->
+<!-- ================================================================ -->
+<section class="recent-activity">
+  <div class="container wide">
+    <h2 class="section-label">Recent</h2>
+    <div class="recent-grid">
 
-    <hr class="rule">
-
-    <!-- ============================================================ -->
-    <!-- ABOUT — short narrative about the group                      -->
-    <!-- ============================================================ -->
-    <section class="about" id="about">
-      <div class="container">
-        <h2 class="section-label">About</h2>
-        <p class="prose">
-          Dark Matter Manchester is a research group within the Particle
-          Physics theme at the University of Manchester. We bring together
-          experimentalists and phenomenologists to address one of the most
-          conspicuous open questions in physics: what is the matter that
-          shapes galaxies and the cosmic web, yet emits no light?
-        </p>
-        <p class="prose">
-          Our programme is broad. We contribute to the DarkSide collaboration
-          and to the construction and physics output of DarkSide-20k —
-          a multi-tonne argon-based detector under construction at Gran Sasso.
-          We develop levitating-sensor technology that could extend the reach
-          of direct searches into mass regimes inaccessible to conventional
-          detectors. And we pursue the theoretical and phenomenological work
-          that connects underlying particle-physics models to what experiments
-          actually see, across different detector targets.
-        </p>
-      </div>
-    </section>
-
-    <hr class="rule">
-
-    <!-- ============================================================ -->
-    <!-- RESEARCH — one <article class="theme"> per research strand   -->
-    <!-- ============================================================ -->
-    <section class="research" id="research">
-      <div class="container">
-        <h2 class="section-label">Research</h2>
-        <div class="theme-list">
-
-          <article class="theme">
-            <h3>Direct detection &middot; DarkSide</h3>
-            <p>
-              We contribute to DarkSide-20k and the reinterpretation of
-              DarkSide-50 data, mapping the experiment's sensitivity to
-              spin-independent, spin-dependent, and effective-field-theory
-              motivated dark matter models — including channels accessible
-              only through forced companion operators.
-            </p>
-          </article>
-
-          <article class="theme">
-            <h3>Levitating sensors</h3>
-            <p>
-              Optically and magnetically levitated mesoscopic sensors offer
-              an emerging route to ultra-low-threshold detection. We develop
-              the sensitivity projections, signal modelling, and physics-case
-              studies that motivate this new class of experiment.
-            </p>
-          </article>
-
-          <article class="theme">
-            <h3>Phenomenology &amp; theory</h3>
-            <p>
-              From non-relativistic effective field theory to UV-complete
-              mediator models, our theoretical work bridges fundamental
-              physics and detector observables, including the target
-              dependence of signals across argon, xenon, germanium and
-              beyond.
-            </p>
-          </article>
-
-          <article class="theme">
-            <h3>Neutrinos &amp; CEνNS</h3>
-            <p>
-              Dual-target direct-detection experiments offer a unique window
-              on coherent elastic neutrino-nucleus scattering and beyond-
-              Standard-Model neutrino physics, complementing the dark matter
-              programme.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule">
-
-    <!-- ============================================================ -->
-    <!-- PEOPLE — duplicate <article class="person"> for each member  -->
-    <!-- ============================================================ -->
-    <section class="people" id="people">
-      <div class="container">
-        <h2 class="section-label">People</h2>
-        <div class="people-grid">
-
-          <article class="person">
-            <h3>Darren <span class="surname">[surname]</span></h3>
-            <p class="role">Professor &middot; Group Lead</p>
-            <p class="bio">EDIT ME — short bio or research interests.</p>
-          </article>
-
-          <article class="person">
-            <h3>Haoxiang <span class="surname">[surname]</span></h3>
-            <p class="role">Postdoctoral Research Associate</p>
-          </article>
-
-          <article class="person">
-            <h3>Andrzej <span class="surname">[surname]</span></h3>
-            <p class="role">Postdoctoral Research Associate</p>
-          </article>
-
-          <article class="person">
-            <h3>Saulė <span class="surname">[surname]</span></h3>
-            <p class="role">PhD Student</p>
-          </article>
-
-          <article class="person">
-            <h3>Ash <span class="surname">[surname]</span></h3>
-            <p class="role">PhD Student</p>
-          </article>
-
-          <article class="person">
-            <h3>Conner <span class="surname">[surname]</span></h3>
-            <p class="role">PhD Student</p>
-          </article>
-
-        </div>
-        <p class="prose small">
-          <em>Prospective PhD students and postdoctoral researchers: we
-          welcome enquiries. Please see <a href="#contact">contact</a>.</em>
-        </p>
-      </div>
-    </section>
-
-    <hr class="rule">
-
-    <!-- ============================================================ -->
-    <!-- PUBLICATIONS — replace these with your selected outputs       -->
-    <!-- ============================================================ -->
-    <section class="publications" id="publications">
-      <div class="container">
-        <h2 class="section-label">Selected publications</h2>
-        <ul class="pub-list">
-
-          <li>
-            <span class="pub-meta">2026 &middot; arXiv:XXXX.XXXXX</span>
-            <span class="pub-title">EDIT ME — paper title goes here</span>
-            <span class="pub-authors">Author A, Author B, Author C, <em>et al.</em></span>
-          </li>
-
-          <li>
-            <span class="pub-meta">2025 &middot; JCAP</span>
-            <span class="pub-title">EDIT ME — another paper title</span>
-            <span class="pub-authors">Author A, Author D, <em>et al.</em></span>
-          </li>
-
-          <li>
-            <span class="pub-meta">2025 &middot; Phys. Rev. D</span>
-            <span class="pub-title">EDIT ME — another paper title</span>
-            <span class="pub-authors">Author E, Author F, <em>et al.</em></span>
-          </li>
-
+      <div class="recent-box">
+        <h3 class="recent-box-title">News</h3>
+        <ul class="recent-list">
+          {% assign recent_news = site.data.achievements | sort: 'date' | reverse %}
+          {% for item in recent_news limit: 3 %}
+            <li>
+              <span class="recent-meta">{{ item.date | date: "%b %Y" }} &middot; {{ item.type }}</span>
+              <span class="recent-title">{{ item.title }}</span>
+            </li>
+          {% else %}
+            <li class="recent-empty">No items yet.</li>
+          {% endfor %}
         </ul>
-        <p class="prose small">
-          Full publication list available on
-          <a href="https://inspirehep.net/" rel="noopener">INSPIRE-HEP</a>.
-        </p>
+        <a class="recent-more" href="{{ '/research/achievements/' | relative_url }}">All news &rarr;</a>
       </div>
-    </section>
 
-    <hr class="rule">
-
-    <!-- ============================================================ -->
-    <!-- CONTACT — replace email placeholders                          -->
-    <!-- ============================================================ -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <h2 class="section-label">Contact</h2>
-        <p class="prose">
-          Department of Physics &amp; Astronomy<br>
-          The University of Manchester<br>
-          Oxford Road, Manchester M13 9PL, United Kingdom
-        </p>
-        <p class="prose">
-          Group lead: <a href="mailto:darren.surname@manchester.ac.uk">darren.surname@manchester.ac.uk</a>
-        </p>
-        <p class="prose">
-          Code &amp; data:
-          <a href="https://github.com/darkmatter-manchester" rel="noopener">github.com/darkmatter-manchester</a>
-        </p>
+      <div class="recent-box">
+        <h3 class="recent-box-title">Publications</h3>
+        <ul class="recent-list">
+          {% assign recent_pubs = site.data.publications | sort: 'date' | reverse %}
+          {% for item in recent_pubs limit: 3 %}
+            <li>
+              <span class="recent-meta">
+                {{ item.date | date: "%Y" }} &middot;
+                {%- if item.journal %} {{ item.journal }}{%- elsif item.arxiv_id %} arXiv:{{ item.arxiv_id }}{%- else %} preprint{%- endif %}
+              </span>
+              <span class="recent-title">{{ item.title }}</span>
+            </li>
+          {% else %}
+            <li class="recent-empty">No items yet.</li>
+          {% endfor %}
+        </ul>
+        <a class="recent-more" href="{{ '/research/publications/' | relative_url }}">All publications &rarr;</a>
       </div>
-    </section>
 
-  </main>
+      <div class="recent-box">
+        <h3 class="recent-box-title">Presentations</h3>
+        <ul class="recent-list">
+          {% assign recent_pres = site.data.presentations | sort: 'date' | reverse %}
+          {% for item in recent_pres limit: 3 %}
+            <li>
+              <span class="recent-meta">{{ item.date | date: "%b %Y" }} &middot; {{ item.venue }}</span>
+              <span class="recent-title">{{ item.title }}</span>
+            </li>
+          {% else %}
+            <li class="recent-empty">No items yet.</li>
+          {% endfor %}
+        </ul>
+        <a class="recent-more" href="{{ '/research/presentations/' | relative_url }}">All presentations &rarr;</a>
+      </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year">2026</span> Dark Matter Manchester &middot; University of Manchester</p>
-      <p>
-        <a href="https://github.com/darkmatter-manchester" rel="noopener">GitHub</a> &middot;
-        <a href="#top">Back to top &uarr;</a>
-      </p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<hr class="rule">
 
-</body>
-</html>
+<!-- ================================================================ -->
+<!-- CONTACT POINTER                                                   -->
+<!-- ================================================================ -->
+<section class="contact-pointer">
+  <div class="container">
+    <h2 class="section-label">Find us</h2>
+    <p class="prose">
+      Department of Physics &amp; Astronomy, The University of Manchester,
+      Oxford Road, Manchester M13 9PL, United Kingdom.
+    </p>
+    <p class="prose">
+      Group lead:
+      <a href="mailto:darren.price@manchester.ac.uk">darren.price@manchester.ac.uk</a>
+      &middot;
+      <a href="{{ '/contact/' | relative_url }}">More ways to reach us &rarr;</a>
+    </p>
+  </div>
+</section>

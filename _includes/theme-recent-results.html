@@ -1,0 +1,33 @@
+{%- comment -%}
+  Recent results for a theme page. Pulls publications whose `tags` include
+  the theme's paper tag (from _data/research_themes.yml), newest first.
+  Requires `page.theme_id` to be set on the including page.
+{%- endcomment -%}
+{% assign theme = site.data.research_themes | where: "id", page.theme_id | first %}
+{% assign theme_tag = theme.paper_tags | first %}
+{% assign matched = site.data.publications | where_exp: "pub", "pub.tags contains theme_tag" | sort: "date" | reverse %}
+
+<h2 class="section-label">Recent results</h2>
+{% if matched.size > 0 %}
+  <ul class="theme-pub-list">
+    {% for pub in matched limit: 4 %}
+      <li>
+        <span class="theme-pub-meta">{{ pub.date | date: "%Y" }}{% if pub.journal and pub.journal != "" %} &middot; {{ pub.journal }}{% endif %}</span>
+        {% if pub.inspire and pub.inspire != "" %}
+          <a class="theme-pub-title" href="{{ pub.inspire }}" rel="noopener">{{ pub.title }}</a>
+        {% elsif pub.arxiv_id and pub.arxiv_id != "" %}
+          <a class="theme-pub-title" href="https://arxiv.org/abs/{{ pub.arxiv_id }}" rel="noopener">{{ pub.title }}</a>
+        {% else %}
+          <span class="theme-pub-title">{{ pub.title }}</span>
+        {% endif %}
+        <span class="theme-pub-authors">
+          {%- assign n = pub.authors | size -%}
+          {%- if n > 4 -%}{{ pub.authors | first }} <em>et al.</em>{%- else -%}{% for a in pub.authors %}{{ a }}{% unless forloop.last %}, {% endunless %}{% endfor %}{%- endif -%}
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="theme-more-link" href="{{ '/research/publications/' | relative_url }}">All publications &rarr;</a>
+{% else %}
+  <p class="prose small">Tagged publications will appear here as they are added.</p>
+{% endif %}

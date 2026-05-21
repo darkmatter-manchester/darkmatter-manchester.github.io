@@ -1,0 +1,258 @@
+---
+layout: default
+title: People
+description: >-
+  The Dark Matter Manchester group — researchers, students, and alumni
+  working across direct detection, levitating sensors, neutrinos, collider
+  physics, instrumentation, and phenomenology.
+permalink: /people/
+---
+
+<!-- ================================================================ -->
+<!-- PAGE HERO                                                         -->
+<!-- ================================================================ -->
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">People</p>
+    <h1 class="page-title">The <em>group</em>.</h1>
+    <p class="lede">
+      Researchers, students, and alumni who together make up Dark Matter
+      Manchester — working across direct detection, levitating sensors,
+      neutrinos, collider physics, instrumentation, and phenomenology.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- GROUP PHOTO with year tabs                                        -->
+<!-- ================================================================ -->
+{% assign group_photos = site.data.group_photos | sort: 'year' | reverse %}
+{% if group_photos.size > 0 %}
+<section class="group-photo-section">
+  <div class="container wide">
+    <h2 class="section-label">Group photo</h2>
+    <div class="group-photo-widget">
+      <div class="group-photo-display">
+        {% for photo in group_photos %}
+          <figure class="group-photo-frame" data-year="{{ photo.year }}"{% unless forloop.first %} hidden{% endunless %}>
+            {% if photo.image and photo.image != "" %}
+              <img src="{{ photo.image | relative_url }}" alt="Dark Matter Manchester group photo, {{ photo.year }}">
+            {% else %}
+              <div class="group-photo-placeholder" role="img" aria-label="Group photo {{ photo.year }} — image to come">
+                <span class="group-photo-placeholder-year">{{ photo.year }}</span>
+                <span class="group-photo-placeholder-text">Group photo to come</span>
+              </div>
+            {% endif %}
+            {% if photo.caption and photo.caption != "" %}
+              <figcaption class="group-photo-caption">{{ photo.caption }}</figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+      {% if group_photos.size > 1 %}
+        <div class="group-photo-tabs" role="tablist" aria-label="Group photo year">
+          {% for photo in group_photos %}
+            <button type="button"
+                    class="group-photo-tab{% if forloop.first %} active{% endif %}"
+                    data-year="{{ photo.year }}"
+                    role="tab"
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ photo.year }}</button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+{% endif %}
+
+<!-- ================================================================ -->
+<!-- CURRENT MEMBERS — single continuous grid                          -->
+<!-- Display order: groups in people_groups.yml order, members in     -->
+<!-- people.yml order (reverse-chrono within each group).             -->
+<!-- ================================================================ -->
+<section class="current-members">
+  <div class="container wide">
+    <h2 class="section-label">Current members</h2>
+    <div class="people-grid">
+      {% for g in site.data.people_groups %}
+        {% assign members = site.data.people | where: "group", g.key %}
+        {% for person in members %}
+          <article class="person-card" id="{{ person.id }}">
+
+            <div class="person-photo">
+              {% if person.photo and person.photo != "" %}
+                <img src="{{ person.photo | relative_url }}" alt="{{ person.name }}">
+              {% else %}
+                {%- assign first_initial = person.name | slice: 0, 1 -%}
+                {%- assign last_initial = person.surname | slice: 0, 1 -%}
+                <span class="person-photo-placeholder" aria-hidden="true">{{ first_initial }}{{ last_initial }}</span>
+              {% endif %}
+            </div>
+
+            <h3 class="person-name">
+              {% if person.honorific and person.honorific != "" %}<span class="person-honorific">{{ person.honorific }}</span> {% endif %}{{ person.name }}
+            </h3>
+            <p class="person-role">{{ person.role }}</p>
+
+            {% if person.bio and person.bio != "" %}
+              <p class="person-bio">{{ person.bio }}</p>
+            {% else %}
+              <p class="person-bio person-bio-placeholder">Research focus to come.</p>
+            {% endif %}
+
+            {% if person.themes.size > 0 %}
+              <div class="person-themes">
+                <div class="person-themes-label">Works on</div>
+                <div class="person-theme-chips">
+                  {% for t in person.themes %}
+                    {%- assign lbl = site.data.tag_labels[t] | default: t -%}
+                    <span class="person-theme-chip">{{ lbl }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
+            {%- assign has_links = false -%}
+            {%- if person.email != "" or person.orcid != "" or person.website != "" or person.linkedin != "" or person.github != "" or person.bluesky != "" -%}
+              {%- assign has_links = true -%}
+            {%- endif -%}
+            {% if has_links %}
+              <div class="person-links">
+                {% if person.email != "" %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+                {% if person.orcid != "" %}<a href="{{ person.orcid }}" rel="noopener">ORCID</a>{% endif %}
+                {% if person.website != "" %}<a href="{{ person.website }}" rel="noopener">Website</a>{% endif %}
+                {% if person.linkedin != "" %}<a href="{{ person.linkedin }}" rel="noopener">LinkedIn</a>{% endif %}
+                {% if person.github != "" %}<a href="{{ person.github }}" rel="noopener">GitHub</a>{% endif %}
+                {% if person.bluesky != "" %}<a href="{{ person.bluesky }}" rel="noopener">Bluesky</a>{% endif %}
+              </div>
+            {% endif %}
+
+          </article>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- ALUMNI                                                            -->
+<!-- ================================================================ -->
+<section class="alumni-section" id="alumni">
+  <div class="container wide">
+    <h2 class="section-label">Alumni</h2>
+    {% assign alumni = site.data.alumni | sort: "surname" %}
+    {% if alumni.size > 0 %}
+      <ul class="alumni-list">
+        {% for alum in alumni %}
+          <li class="alumni-entry" id="{{ alum.id }}">
+            <div class="alumni-header">
+              <span class="alumni-name">
+                {% if alum.honorific and alum.honorific != "" %}<span class="alumni-honorific">{{ alum.honorific }}</span> {% endif %}{{ alum.name }}
+              </span>
+              <span class="alumni-meta">{{ alum.role_while_here }} &middot; {{ alum.dates }}</span>
+            </div>
+
+            {% if alum.bio and alum.bio != "" %}
+              <p class="alumni-bio">{{ alum.bio }}</p>
+            {% endif %}
+
+            {% if alum.themes.size > 0 %}
+              <div class="person-themes alumni-themes">
+                <div class="person-themes-label">Worked on</div>
+                <div class="person-theme-chips">
+                  {% for t in alum.themes %}
+                    {%- assign lbl = site.data.tag_labels[t] | default: t -%}
+                    <span class="person-theme-chip">{{ lbl }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if alum.current_position and alum.current_position != "" %}
+              <p class="alumni-current">
+                <span class="alumni-current-label">Now</span>
+                {% if alum.current_position_link and alum.current_position_link != "" %}<a href="{{ alum.current_position_link }}" rel="noopener">{{ alum.current_position }}</a>{% else %}{{ alum.current_position }}{% endif %}
+              </p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="prose small">Alumni listings coming soon.</p>
+    {% endif %}
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- ENQUIRIES NOTE                                                    -->
+<!-- ================================================================ -->
+<section class="enquiries-note">
+  <div class="container">
+    <p class="prose small">
+      <em>Prospective PhD students and postdoctoral researchers: we welcome
+      enquiries. See <a href="{{ '/join/' | relative_url }}">join the group</a>
+      for current opportunities.</em>
+    </p>
+  </div>
+</section>
+
+<script>
+// ---- Group-photo year-tab switcher ----
+(function () {
+  var widget = document.querySelector('.group-photo-widget');
+  if (!widget) return;
+  var tabs = widget.querySelectorAll('.group-photo-tab');
+  var frames = widget.querySelectorAll('.group-photo-frame');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var year = tab.dataset.year;
+      frames.forEach(function (f) { f.hidden = (f.dataset.year !== year); });
+      tabs.forEach(function (t) {
+        var on = t.dataset.year === year;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      // Card heights may shift if the photo height changes layout
+      if (window.__syncPersonCardHeights) window.__syncPersonCardHeights();
+    });
+  });
+})();
+
+// ---- Equalise person-card heights to the tallest card ----
+// Cards grow to fit their content (bio length, number of tags); this
+// makes every card match the tallest so the grid stays uniform.
+(function () {
+  function sync() {
+    var cards = document.querySelectorAll('.person-card');
+    if (!cards.length) return;
+    var i;
+    for (i = 0; i < cards.length; i++) cards[i].style.minHeight = '';
+    requestAnimationFrame(function () {
+      var max = 0;
+      for (i = 0; i < cards.length; i++) {
+        if (cards[i].offsetHeight > max) max = cards[i].offsetHeight;
+      }
+      for (i = 0; i < cards.length; i++) cards[i].style.minHeight = max + 'px';
+    });
+  }
+  window.__syncPersonCardHeights = sync;
+
+  if (document.readyState === 'complete') { sync(); }
+  else { window.addEventListener('load', sync); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sync); }
+
+  var t = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(sync, 150);
+  });
+})();
+</script>

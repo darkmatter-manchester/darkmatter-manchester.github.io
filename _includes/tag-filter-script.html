@@ -1,0 +1,92 @@
+{%- comment -%}
+  Shared filter behaviour for /research/publications/ and
+  /research/presentations/. Operates on:
+    .tag-filter            the filter bar
+    .tag-filter-btn[data-tag]   topic/category toggles
+    .tag-filter-reset      one or more reset buttons
+    .filterable[data-tags] the items to show/hide
+    .filter-group[data-group]   optional grouping wrappers (year groups)
+    .filter-empty          optional empty-state message
+  Behaviour: starts with every tag ON (all items shown). Clicking a tag
+  while all are on isolates it (others switch off). Further clicks toggle
+  tags in an OR fashion. Emptying the selection, or pressing reset,
+  returns to all-on. Items fade via CSS; empty groups collapse.
+{%- endcomment -%}
+<script>
+(function () {
+  var bar = document.querySelector('.tag-filter');
+  if (!bar) return;
+  var btns   = Array.prototype.slice.call(bar.querySelectorAll('.tag-filter-btn'));
+  var resets = Array.prototype.slice.call(document.querySelectorAll('.tag-filter-reset'));
+  var items  = Array.prototype.slice.call(document.querySelectorAll('.filterable'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.filter-group'));
+  var emptyMsg = document.querySelector('.filter-empty');
+  var FADE = 300;
+
+  var allOn = true;
+  var active = {};
+
+  function shouldShow(item) {
+    if (allOn) return true;
+    var tags = (item.getAttribute('data-tags') || '').split(' ');
+    for (var i = 0; i < tags.length; i++) { if (active[tags[i]]) return true; }
+    return false;
+  }
+
+  function setVisible(item, show) {
+    if (show) {
+      item.classList.remove('is-hidden');
+      void item.offsetWidth;                 // reflow so fade-in animates
+      item.classList.remove('is-fading');
+    } else if (!item.classList.contains('is-fading')) {
+      item.classList.add('is-fading');
+      setTimeout(function () {
+        if (item.classList.contains('is-fading')) item.classList.add('is-hidden');
+      }, FADE);
+    }
+  }
+
+  function render() {
+    var anyVisible = false;
+    var groupVisible = {};
+    items.forEach(function (item) {
+      var show = shouldShow(item);
+      setVisible(item, show);
+      if (show) anyVisible = true;
+      var g = item.closest('.filter-group');
+      if (g) {
+        var k = g.getAttribute('data-group');
+        groupVisible[k] = groupVisible[k] || show;
+      }
+    });
+    groups.forEach(function (g) {
+      g.classList.toggle('is-group-hidden', !groupVisible[g.getAttribute('data-group')]);
+    });
+    btns.forEach(function (b) {
+      var on = allOn || !!active[b.getAttribute('data-tag')];
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (emptyMsg) emptyMsg.hidden = anyVisible;
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var tag = btn.getAttribute('data-tag');
+      if (allOn) {
+        allOn = false; active = {}; active[tag] = true;
+      } else {
+        if (active[tag]) { delete active[tag]; } else { active[tag] = true; }
+        if (Object.keys(active).length === 0) { allOn = true; }
+      }
+      render();
+    });
+  });
+
+  resets.forEach(function (r) {
+    r.addEventListener('click', function () { allOn = true; active = {}; render(); });
+  });
+
+  render();
+})();
+</script>

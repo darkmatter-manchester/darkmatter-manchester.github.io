@@ -1,0 +1,71 @@
+---
+layout: default
+title: Research
+description: >-
+  The Dark Matter Manchester research programme — six interconnected themes
+  spanning phenomenology, the DarkSide experiment, instrumentation,
+  levitating sensors, neutrinos, and collider physics.
+permalink: /research/
+---
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Research</p>
+    <h1 class="page-title">What we <em>work on</em>.</h1>
+    <p class="lede">
+      Our research spans the full arc of the dark matter problem — from the
+      underlying particle theory, through the experiments that could detect
+      it, to the instrumentation and analysis techniques that make those
+      experiments possible. Six interconnected themes structure the group's
+      work.
+    </p>
+    <nav class="research-quicknav" aria-label="Research sections">
+      <a href="#themes">Themes</a>
+      <a href="{{ '/research/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/research/presentations/' | relative_url }}">Presentations</a>
+      <a href="{{ '/research/achievements/' | relative_url }}">Achievements</a>
+    </nav>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="research-themes-full" id="themes">
+  <div class="container wide">
+    <h2 class="section-label">Themes</h2>
+    <div class="theme-card-grid">
+      {% for theme in site.data.research_themes %}
+        <a class="theme-card" href="{{ '/research/' | append: theme.slug | append: '/' | relative_url }}">
+          <h3>{{ theme.title }}</h3>
+          <p>{{ theme.teaser }}</p>
+          <span class="theme-card-link">Explore &rarr;</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="research-outputs">
+  <div class="container wide">
+    <h2 class="section-label">Outputs</h2>
+    <div class="theme-card-grid">
+      <a class="theme-card" href="{{ '/research/publications/' | relative_url }}">
+        <h3>Publications</h3>
+        <p>Refereed papers, preprints, and conference proceedings, filterable by topic.</p>
+        <span class="theme-card-link">View &rarr;</span>
+      </a>
+      <a class="theme-card" href="{{ '/research/presentations/' | relative_url }}">
+        <h3>Presentations</h3>
+        <p>Research talks, public lectures, seminars, and posters.</p>
+        <span class="theme-card-link">View &rarr;</span>
+      </a>
+      <a class="theme-card" href="{{ '/research/achievements/' | relative_url }}">
+        <h3>Achievements</h3>
+        <p>Awards and prizes, grants, theses, milestones, and media coverage.</p>
+        <span class="theme-card-link">View &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>

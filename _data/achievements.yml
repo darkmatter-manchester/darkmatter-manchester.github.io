@@ -1,0 +1,52 @@
+# =====================================================================
+# Achievements
+# =====================================================================
+# Feeds:
+#   - the Recent news box on the home page (top 3 by date)
+#   - the /research/achievements/ page (reverse-chronological list)
+#
+# To add an achievement: append an entry. They sort automatically; the
+# three most recent also appear in the home page "Recent news" box.
+#
+# Schema:
+#   date:  YYYY-MM-DD                       (required — drives ordering)
+#   type:  Award | Grant | Thesis | Milestone | Media
+#   title: short headline
+#   body:  optional longer description (Markdown OK). Leave "" to omit.
+#   link:  optional URL (renders a "Read more" link). Leave "" to omit.
+#
+# NOTE: example entries below — replace with the real list when ready.
+# =====================================================================
+
+- date: 2026-04-15
+  type: Milestone
+  title: "EXAMPLE — First photodetector modules delivered for the DarkSide-20k neutron veto"
+  body: >-
+    A short description of the milestone goes here. Markdown is fine for
+    a sentence or two of context.
+  link: ""
+
+- date: 2026-02-01
+  type: Grant
+  title: "EXAMPLE — New STFC consolidated grant awarded to the group"
+  body: ""
+  link: ""
+
+- date: 2025-11-10
+  type: Award
+  title: "EXAMPLE — Group member receives an early-career prize"
+  body: ""
+  link: "https://example.com"
+
+- date: 2025-06-30
+  type: Thesis
+  title: "EXAMPLE — PhD thesis successfully defended"
+  body: >-
+    Title of the thesis and a one-line note on the topic.
+  link: ""
+
+- date: 2024-10-05
+  type: Media
+  title: "EXAMPLE — Group research featured in national coverage"
+  body: ""
+  link: "https://example.com"

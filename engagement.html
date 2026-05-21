@@ -1,0 +1,192 @@
+---
+layout: default
+title: Public engagement
+description: >-
+  Dark Matter Manchester shares the search for dark matter through public
+  lectures, school visits, festivals, and freely available resources — and
+  is available for talks and professional speaking engagements.
+permalink: /engagement/
+---
+
+<!-- ================================================================ -->
+<!-- HERO                                                              -->
+<!-- ================================================================ -->
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Public engagement</p>
+    <h1 class="page-title">Beyond the <em>lab</em>.</h1>
+    <p class="lede">
+      Dark matter is one of the biggest open questions in science — and one
+      of the most captivating ways into physics for people of all ages. We
+      share our research widely, through public lectures, school visits,
+      festivals, and freely available resources.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- ETHOS / SUMMARY (holding text)                                    -->
+<!-- ================================================================ -->
+<section class="engagement-intro">
+  <div class="container">
+    <!-- HOLDING TEXT — review and replace. -->
+    <p class="prose">
+      From primary-school assemblies to science festivals and evening
+      lectures, the group is active in bringing the search for dark matter to
+      audiences far beyond the laboratory. We believe the questions we work
+      on — what is the Universe made of? what holds galaxies together? — belong
+      to everyone, and we enjoy sharing both the science and the experience of
+      doing research at the frontier.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- INVITE A SPEAKER                                                  -->
+<!-- ================================================================ -->
+<section class="engagement-speaker">
+  <div class="container wide">
+    <h2 class="section-label">Invite a speaker</h2>
+    <div class="speaker-card-grid">
+
+      <div class="speaker-card">
+        <h3>Community groups &amp; schools</h3>
+        <!-- HOLDING TEXT — review and replace. -->
+        <p>
+          Darren Price is an experienced public speaker and is glad to give
+          talks to schools, societies, community groups, and other audiences
+          on dark matter and the search for it. If you'd like to arrange a
+          talk, please get in touch.
+        </p>
+        <a class="speaker-cta" href="{{ '/contact/' | relative_url }}">Arrange a talk &rarr;</a>
+      </div>
+
+      <div class="speaker-card">
+        <h3>Professional &amp; corporate events</h3>
+        <!-- HOLDING TEXT — review and replace. -->
+        <p>
+          For professional and corporate speaking engagements — keynotes,
+          after-dinner talks, and event appearances — Darren is available for
+          hire. Get in touch to discuss your event.
+        </p>
+        <a class="speaker-cta" href="{{ '/contact/' | relative_url }}">Enquire about speaking &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- ACTIVITIES                                                        -->
+<!-- ================================================================ -->
+<section class="engagement-activities">
+  <div class="container">
+    <h2 class="section-label">Activities</h2>
+    {% assign activities = site.data.engagement_activities | sort: "date" | reverse %}
+    {% if activities.size > 0 %}
+      <ul class="engagement-list">
+        {% for act in activities %}
+          {%- assign has_desc = false -%}
+          {%- if act.description and act.description != "" -%}{%- assign has_desc = true -%}{%- endif -%}
+          <li class="engagement-item">
+            <div class="engagement-thumb">
+              {% if act.image and act.image != "" %}
+                <img src="{{ act.image | relative_url }}" alt="{{ act.title }}">
+              {% else %}
+                <div class="engagement-thumb-placeholder" aria-hidden="true"><span>Image</span></div>
+              {% endif %}
+            </div>
+            <div class="engagement-body">
+              <div class="engagement-meta">{{ act.type }} &middot; {{ act.date | date: "%B %Y" }}</div>
+              <h3 class="engagement-title">{{ act.title }}</h3>
+              {% if act.audience and act.audience != "" %}<div class="engagement-audience">{{ act.audience }}</div>{% endif %}
+              <div class="engagement-actions">
+                {% if act.link and act.link != "" %}<a class="engagement-link" href="{{ act.link }}" rel="noopener">Link &rarr;</a>{% endif %}
+                {% if has_desc %}
+                  <button type="button" class="engagement-toggle" aria-expanded="false">
+                    <span class="engagement-toggle-label">More</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                {% endif %}
+              </div>
+              {% if has_desc %}
+                <div class="engagement-desc">
+                  <div class="engagement-desc-inner"><p>{{ act.description }}</p></div>
+                </div>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="prose small">Activities will be listed here.</p>
+    {% endif %}
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================ -->
+<!-- RESOURCES                                                         -->
+<!-- ================================================================ -->
+<section class="engagement-resources">
+  <div class="container wide">
+    <h2 class="section-label">Resources</h2>
+
+    {% assign own = site.data.engagement_resources | where: "group", "own" %}
+    {% assign external = site.data.engagement_resources | where: "group", "external" %}
+
+    {% if own.size > 0 %}
+      <h3 class="resources-subhead">From the group</h3>
+      <div class="theme-card-grid">
+        {% for r in own %}
+          <a class="theme-card resource-card" href="{{ r.link }}" rel="noopener">
+            {% if r.type and r.type != "" %}<span class="resource-type">{{ r.type }}</span>{% endif %}
+            <h3>{{ r.title }}</h3>
+            {% if r.description and r.description != "" %}<p>{{ r.description }}</p>{% endif %}
+            <span class="theme-card-link">Open &rarr;</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if external.size > 0 %}
+      <h3 class="resources-subhead">Elsewhere</h3>
+      <div class="theme-card-grid">
+        {% for r in external %}
+          <a class="theme-card resource-card" href="{{ r.link }}" rel="noopener">
+            {% if r.type and r.type != "" %}<span class="resource-type">{{ r.type }}</span>{% endif %}
+            <h3>{{ r.title }}</h3>
+            {% if r.description and r.description != "" %}<p>{{ r.description }}</p>{% endif %}
+            {% if r.source and r.source != "" %}<span class="resource-source">{{ r.source }}</span>{% endif %}
+            <span class="theme-card-link">Open &rarr;</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+// Expand / collapse engagement activity descriptions
+(function () {
+  document.querySelectorAll('.engagement-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.engagement-item');
+      if (!item) return;
+      var desc = item.querySelector('.engagement-desc');
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      var lbl = btn.querySelector('.engagement-toggle-label');
+      if (lbl) lbl.textContent = open ? 'More' : 'Less';
+      if (desc) desc.classList.toggle('open', !open);
+    });
+  });
+})();
+</script>

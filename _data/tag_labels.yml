@@ -1,0 +1,24 @@
+# =====================================================================
+# Tag display labels
+# =====================================================================
+# Maps internal tag slugs (used in YAML and as CSS class fragments) to
+# their human-readable display labels. Used wherever tags are shown
+# (people cards, publications filter pills, etc.).
+#
+# To add a new tag: add its slug -> label here.
+# Slug rules: lowercase, no spaces, no slashes, no diacritics.
+# =====================================================================
+
+darkside:        "DarkSide"
+phenomenology:   "Phenomenology"
+instrumentation: "Instrumentation"
+quantumsensors:  "Levitating sensors"
+neutrinos:       "Neutrinos"
+colliderphysics: "Collider physics"
+mlai:            "ML/AI"
+
+# Presentation category tags (used on /research/presentations/)
+research-talk:   "Research talk"
+public-lecture:  "Public lecture"
+seminar:         "Seminar"
+poster:          "Poster"
