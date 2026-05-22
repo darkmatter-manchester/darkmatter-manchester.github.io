@@ -1,0 +1,95 @@
+---
+layout: subpage
+title: PhD
+eyebrow: Join the group
+heading: Doctoral study
+permalink: /join/phd/
+breadcrumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Join", url: "/join/" }
+lede: >-
+  I welcome expressions of interest from prospective PhD students across all
+  areas of the group — through UK funding, your own scholarship, or a scheme
+  you plan to apply for.
+back_url: /join/
+back_label: All ways to join
+description: >-
+  PhD opportunities, funding routes, requirements, and scholarship schemes
+  for prospective doctoral students in Dark Matter Manchester.
+---
+
+<!-- HOLDING TEXT throughout — review and replace. -->
+
+<p class="prose">
+  I'm interested in hearing from prospective PhD students looking for
+  UK-funded positions through the University of Manchester or the UK research
+  council (STFC), as well as those arriving with their own scholarship or
+  planning to apply for funding from their home country or government. The
+  routes differ, but in every case I look for the same thing: strong
+  motivation, solid preparation, and a genuine interest in the questions the
+  group works on.
+</p>
+
+<h2 class="section-label">Requirements</h2>
+<div class="req-split">
+  <div class="req-col">
+    <h3 class="subhead">Home students</h3>
+    <p class="prose">
+      EDIT ME — outline the typical academic requirements and any specific
+      expectations for Home-fee students (degree class, background, etc.).
+    </p>
+  </div>
+  <div class="req-col">
+    <h3 class="subhead">International students</h3>
+    <p class="prose">
+      EDIT ME — outline requirements for International students, including
+      any English-language requirements and funding considerations.
+    </p>
+  </div>
+</div>
+
+<p class="prose">
+  New to applying for a PhD? I've written up some
+  <a href="{{ '/join/phd/advice/' | relative_url }}">thoughts and advice on the process &rarr;</a>
+</p>
+
+<h2 class="section-label">Funding routes &amp; scholarships</h2>
+<p class="prose">
+  The schemes below are the main routes I can support. Deadlines and
+  eligibility vary — and many close <em>well before</em> the start of study —
+  so please check each scheme's official page and contact me in good time.
+</p>
+
+{% assign schemes = site.data.phd_scholarships %}
+{% if schemes and schemes.size > 0 %}
+  <div class="scheme-list">
+    {% for s in schemes %}
+      <div class="scheme-card">
+        <div class="scheme-head">
+          <h3 class="scheme-title">{{ s.title }}</h3>
+          {% if s.eligibility and s.eligibility != "" %}<span class="scheme-eligibility">{{ s.eligibility }}</span>{% endif %}
+        </div>
+        <div class="scheme-dates">
+          {% if s.deadline and s.deadline != "" %}<div class="scheme-date"><span class="scheme-label">Apply by</span>{{ s.deadline }}</div>{% endif %}
+          {% if s.contact_by and s.contact_by != "" %}<div class="scheme-date"><span class="scheme-label">Contact me by</span>{{ s.contact_by }}</div>{% endif %}
+        </div>
+        {% if s.formal and s.formal != "" %}<div class="scheme-req"><span class="scheme-label">Formal requirements</span><p>{{ s.formal }}</p></div>{% endif %}
+        {% if s.practical and s.practical != "" %}<div class="scheme-req"><span class="scheme-label">Practical</span><p>{{ s.practical }}</p></div>{% endif %}
+        {% if s.link and s.link != "" %}<a class="scheme-link" href="{{ s.link }}" rel="noopener">Scheme details &rarr;</a>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<h2 class="section-label">Your own funding</h2>
+<p class="prose">
+  If you intend to apply for your own funding, or know of a scholarship not
+  listed here, I'd still be glad to hear from you. The entry process and
+  academic standards are the same regardless of the funding source — what
+  matters is the strength of the application and the fit with the group.
+</p>
+
+<p class="prose">
+  New to applying for a PhD? I've written up some
+  <a href="{{ '/join/phd/advice/' | relative_url }}">thoughts and advice on the process &rarr;</a>
+</p>

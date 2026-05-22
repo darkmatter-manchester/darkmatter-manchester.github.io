@@ -1,0 +1,57 @@
+---
+layout: subpage
+title: Postdoc
+eyebrow: Join the group
+heading: Postdoctoral fellowships
+permalink: /join/postdoc/
+breadcrumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Join", url: "/join/" }
+lede: >-
+  I'm glad to support strong candidates applying for postdoctoral
+  fellowships to be held in the group, across our full research programme.
+back_url: /join/
+back_label: All ways to join
+description: >-
+  Postdoctoral fellowship opportunities and schemes supported by Dark Matter
+  Manchester.
+---
+
+<!-- HOLDING TEXT throughout — review and replace. -->
+
+<p class="prose">
+  Beyond positions funded on specific grants — which, when open, appear under
+  <a href="{{ '/join/' | relative_url }}">currently open</a> — I'm always
+  happy to support outstanding researchers applying for an independent or
+  externally funded fellowship to be hosted in the group. A fellowship is a
+  significant step towards research independence, and the right scheme
+  depends on your career stage, nationality, and research direction.
+</p>
+
+<p class="prose">
+  If you're considering any of the schemes below, get in touch early. A
+  competitive fellowship application takes months to develop, and the
+  strongest proposals are built collaboratively, well ahead of the deadline.
+</p>
+
+<h2 class="section-label">Fellowship schemes</h2>
+
+{% assign fellowships = site.data.postdoc_fellowships %}
+{% if fellowships and fellowships.size > 0 %}
+  <div class="scheme-list">
+    {% for f in fellowships %}
+      <div class="scheme-card">
+        <div class="scheme-head">
+          <h3 class="scheme-title">{{ f.title }}</h3>
+          {% if f.stage and f.stage != "" %}<span class="scheme-eligibility">{{ f.stage }}</span>{% endif %}
+        </div>
+        {% if f.summary and f.summary != "" %}<p class="scheme-summary">{{ f.summary }}</p>{% endif %}
+        <div class="scheme-dates">
+          {% if f.timing and f.timing != "" %}<div class="scheme-date"><span class="scheme-label">Timing</span>{{ f.timing }}</div>{% endif %}
+          {% if f.contact_by and f.contact_by != "" %}<div class="scheme-date"><span class="scheme-label">Contact me by</span>{{ f.contact_by }}</div>{% endif %}
+        </div>
+        {% if f.link and f.link != "" %}<a class="scheme-link" href="{{ f.link }}" rel="noopener">Scheme details &rarr;</a>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
